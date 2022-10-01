@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/image_posts_nav_graph"
+    app:startDestination="@id/imagePostListFragment">
+
+    <fragment
+        android:id="@+id/imagePostListFragment"
+        android:name="com.app.general.pixage.images.presentation.screen.ImagePostListFragment"
+        android:label="fragment_image_post_list"
+        tools:layout="@layout/fragment_image_post_list" >
+        <action
+            android:id="@+id/action_imagePostListFragment_to_imagePostDetailFragment"
+            app:destination="@id/imagePostDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/imagePostDetailFragment"
+        android:name="com.app.general.pixage.images.presentation.screen.ImagePostDetailFragment"
+        android:label="fragment_image_post_detail"
+        tools:layout="@layout/fragment_image_post_detail" />
+</navigation>

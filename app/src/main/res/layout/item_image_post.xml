@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="imagePost"
+            type="com.app.general.pixage.images.domain.entity.ImagePost" />
+
+        <variable
+            name="listener"
+            type="com.app.general.pixage.images.presentation.state.ImagePostClickListener" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> listener.setSelectedImagePost(imagePost)}"
+        android:layout_margin="4dp"
+        app:cardCornerRadius="4dp"
+        app:cardElevation="4dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/ivThumbnail"
+            imageUrl="@{imagePost.previewUrl}"
+            android:layout_width="120dp"
+            android:layout_height="96dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="8dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/glStart"
+            app:layout_constraintTop_toTopOf="@+id/glTop"
+            tools:src="@tools:sample/avatars"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvPostedBy"
+            style="@style/grey_text_style"
+            android:text="@string/posted_by"
+            app:layout_constraintBottom_toTopOf="@+id/tvUserName"
+            app:layout_constraintEnd_toEndOf="@id/glEnd"
+            app:layout_constraintStart_toEndOf="@id/ivThumbnail"
+            app:layout_constraintTop_toTopOf="@+id/ivThumbnail" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvUserName"
+            style="@style/post_name_text_style"
+            android:text="@{imagePost.user}"
+            app:layout_constraintEnd_toEndOf="@id/glEnd"
+            app:layout_constraintStart_toEndOf="@id/ivThumbnail"
+            app:layout_constraintTop_toBottomOf="@+id/tvPostedBy"
+            tools:text="Vincent Van Ghogh" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tvTags"
+            style="@style/tags_text_style"
+            android:text="@{imagePost.tags}"
+            app:layout_constraintBottom_toBottomOf="@+id/ivThumbnail"
+            app:layout_constraintEnd_toEndOf="@id/glEnd"
+            app:layout_constraintStart_toEndOf="@id/ivThumbnail"
+            app:layout_constraintTop_toBottomOf="@+id/tvUserName"
+            tools:text="Art, Painting, Creativity" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="8dp" />
+
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_end="8dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/glTop"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="8dp" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>
+</layout>

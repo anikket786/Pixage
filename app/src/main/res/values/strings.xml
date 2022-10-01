@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Pixage</string>
+    <string name="network_error_message">"Network error, please check your internet connection."</string>
+    <string name="something_went_wrong">"Something went wrong. Please retry"</string>
+    <string name="no_results_found">No results found :(</string>
+    <string name="posted_by">Posted by</string>
+    <string name="tags">Tags :-</string>
+    <string name="image_details_dialog_message">Do you want to see more details for this image?</string>
+    <string name="yes">YES</string>
+    <string name="no">NO</string>
+    <string name="search_hint">Search...</string>
+    <string name="post">Post</string>
+</resources>
