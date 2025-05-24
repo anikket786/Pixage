@@ -62,5 +62,29 @@
         app:layout_constraintTop_toBottomOf="@id/toolBar"
         tools:text="Internet Connection Failed" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabTerms"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="Terms and conditions"
+            android:src="@drawable/baseline_tc_24"
+            app:tint="@android:color/white"
+            app:layout_constraintBottom_toTopOf="@id/fabPrivacy"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="16dp"
+            android:layout_marginEnd="16dp" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fabPrivacy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:contentDescription="Privacy policy"
+            android:src="@drawable/baseline_privacy_policy_24"
+            app:tint="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_margin="16dp" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

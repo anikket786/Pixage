@@ -1,6 +1,7 @@
 package com.app.general.pixage.images.presentation.screen
 
 import android.app.AlertDialog
+import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.appcompat.widget.Toolbar
+import androidx.browser.customtabs.CustomTabsIntent
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.hilt.navigation.fragment.hiltNavGraphViewModels
@@ -29,6 +31,7 @@ import com.app.general.pixage.images.presentation.state.ImagePostsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.distinctUntilChangedBy
 import kotlinx.coroutines.flow.map
+import androidx.core.net.toUri
 
 @AndroidEntryPoint
 class ImagePostListFragment : Fragment() {
@@ -93,6 +96,20 @@ class ImagePostListFragment : Fragment() {
 
     private fun setListener() {
         setupSearchViewListener()
+
+        binding?.fabTerms?.setOnClickListener {
+            openCustomTab("https://doc-hosting.flycricket.io/pixage-terms-of-use/a1e8fdb3-955d-481d-b316-6f84b6316ee2/terms")
+        }
+
+        binding?.fabPrivacy?.setOnClickListener {
+            openCustomTab("https://doc-hosting.flycricket.io/pixage-privacy-policy/30dec855-5955-4ee4-a856-a6bc6b760679/privacy")
+        }
+    }
+
+    private fun openCustomTab(url: String) {
+        val builder = CustomTabsIntent.Builder()
+        val customTabsIntent = builder.build()
+        customTabsIntent.launchUrl(requireContext(), url.toUri())
     }
 
     private fun setupSearchViewListener() {

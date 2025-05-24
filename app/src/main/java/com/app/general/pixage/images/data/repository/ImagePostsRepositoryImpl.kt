@@ -83,7 +83,7 @@ class ImagePostsRepositoryImpl @Inject constructor(
             // different image types to maintain consistency
             imagePostsDao.clearImagePosts()
         }
-        imagePostsDao.insertImagePosts(remoteImages.hits?.map {
+        remoteImages.hits?.map {
             LocalImagePost(
                 tags = it?.tags,
                 user = it?.user,
@@ -93,6 +93,6 @@ class ImagePostsRepositoryImpl @Inject constructor(
                 previewUrl = it?.previewUrl,
                 largeImageUrl = it?.largeImageUrl,
             )
-        })
+        }?.let { imagePostsDao.insertImagePosts(it) }
     }
 }

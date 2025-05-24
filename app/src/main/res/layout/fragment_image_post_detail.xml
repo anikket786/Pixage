@@ -145,7 +145,6 @@
                 app:layout_constraintStart_toEndOf="@+id/tvTags"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="@id/tvTags"
-                app:layout_constraintBottom_toBottomOf="@id/tvTags"
                 app:layout_constraintHorizontal_bias="0"
                 tools:text="Art, Creativity, culture"/>
 

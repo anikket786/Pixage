@@ -9,7 +9,7 @@ interface ImagePostsDao {
     suspend fun getImagePosts(limit: Int, startIndex: Int): List<LocalImagePost>?
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertImagePosts(restaurants: List<LocalImagePost>?)
+    suspend fun insertImagePosts(restaurants: List<LocalImagePost>)
 
     @Query("DELETE FROM image_posts")
     suspend fun clearImagePosts()
